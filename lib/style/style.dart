@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 const colorRed = Color.fromRGBO(231, 28, 36, 1);
 const colorDark = Color.fromRGBO(136, 28, 32, 1);
@@ -11,6 +12,22 @@ const colorWhite = Color.fromRGBO(255, 255, 255, 1.0);
 const colorDarkBlue = Color.fromRGBO(44, 62, 80, 1.0);
 const colorLightGray = Color.fromRGBO(135, 142, 150, 1.0);
 const colorLight = Color.fromRGBO(211, 211, 211, 1.0);
+
+PinTheme AppOTPStyle() {
+  return PinTheme(
+    inactiveColor: colorLight,
+    inactiveFillColor: colorWhite,
+    selectedColor: colorGreen,
+    activeColor: colorWhite,
+    selectedFillColor: colorGreen,
+    shape: PinCodeFieldShape.box,
+    borderRadius: BorderRadius.circular(5),
+    fieldHeight: 50,
+    borderWidth: 0.5,
+    fieldWidth: 45,
+    activeFillColor: Colors.white,
+  );
+}
 
 TextStyle Head1Text(textColor) {
   return TextStyle(
@@ -99,7 +116,10 @@ ButtonStyle AppStatusButtonStyle(btnColor) {
 
 TextStyle ButtonTextStyle() {
   return TextStyle(
-      fontSize: 14, fontFamily: 'poppins', fontWeight: FontWeight.w400);
+      fontSize: 14,
+      fontFamily: 'poppins',
+      color: Colors.white,
+      fontWeight: FontWeight.w400);
 }
 
 Ink SuccessButtonChild(String ButtonText) {

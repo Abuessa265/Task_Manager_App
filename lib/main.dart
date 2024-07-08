@@ -6,24 +6,39 @@ import 'package:taskmanager/screen/onboarding/pinVerificationScreen.dart';
 import 'package:taskmanager/screen/onboarding/registrationScreen.dart';
 import 'package:taskmanager/screen/onboarding/setPasswordScreen.dart';
 import 'package:taskmanager/screen/onboarding/splashScreen.dart';
+import 'package:taskmanager/screen/task/newTaskListScreen.dart';
+import 'package:taskmanager/utility/utility.dart';
 
-void main() {
-  runApp(
-    DevicePreview(
-      enabled: true,
-      builder: (context) => const MyApp(),
-    ),
-  );
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  String? token = await ReadUserData('token');
+  if (token == null) {
+    runApp(
+      DevicePreview(
+        enabled: true,
+        builder: (context) => MyApp('/login'),
+      ),
+    );
+  } else {
+    runApp(
+      DevicePreview(
+        enabled: true,
+        builder: (context) => MyApp('/newTaskList'),
+      ),
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final String FirstRoute;
+
+  MyApp(this.FirstRoute);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Task manager",
-      initialRoute: '/setPassword',
+      initialRoute: FirstRoute,
       routes: {
         '/': (context) => splashScreen(),
         '/login': (context) => loginScreen(),
@@ -31,6 +46,7 @@ class MyApp extends StatelessWidget {
         '/emailVerification': (context) => emailVerificationScreen(),
         '/pinVerification': (context) => pinVerificationScreen(),
         '/setPassword': (context) => setPasswordScreen(),
+        '/newTaskList': (context) => newTaskListScreen(),
       },
     );
   }
