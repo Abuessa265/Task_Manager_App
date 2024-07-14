@@ -5,8 +5,7 @@ import 'package:taskmanager/screen/onboarding/loginScreen.dart';
 import 'package:taskmanager/screen/onboarding/pinVerificationScreen.dart';
 import 'package:taskmanager/screen/onboarding/registrationScreen.dart';
 import 'package:taskmanager/screen/onboarding/setPasswordScreen.dart';
-import 'package:taskmanager/screen/onboarding/splashScreen.dart';
-import 'package:taskmanager/screen/task/newTaskListScreen.dart';
+import 'package:taskmanager/screen/task/homeScreen.dart';
 import 'package:taskmanager/utility/utility.dart';
 
 void main() async {
@@ -16,14 +15,14 @@ void main() async {
     runApp(
       DevicePreview(
         enabled: true,
-        builder: (context) => MyApp('/login'),
+        builder: (context) => MyApp('/'),
       ),
     );
   } else {
     runApp(
       DevicePreview(
         enabled: true,
-        builder: (context) => MyApp('/newTaskList'),
+        builder: (context) => MyApp('/login'),
       ),
     );
   }
@@ -40,13 +39,12 @@ class MyApp extends StatelessWidget {
       title: "Task manager",
       initialRoute: FirstRoute,
       routes: {
-        '/': (context) => splashScreen(),
+        '/': (context) => homeScreen(),
         '/login': (context) => loginScreen(),
         '/registration': (context) => registrationScreen(),
         '/emailVerification': (context) => emailVerificationScreen(),
         '/pinVerification': (context) => pinVerificationScreen(),
-        '/setPassword': (context) => setPasswordScreen(),
-        '/newTaskList': (context) => newTaskListScreen(),
+        '/setPassword': (context) => setPasswordScreen()
       },
     );
   }
