@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:taskmanager/Style/Style.dart';
 import 'package:taskmanager/component/cancelTaskList.dart';
 import 'package:taskmanager/component/completedTaskList.dart';
 import 'package:taskmanager/component/progressTaskList.dart';
 
+import '../../component/TaskAppBar.dart';
 import '../../component/appBottomNav.dart';
 import '../../component/newTaskList.dart';
 
@@ -32,10 +32,7 @@ class _homeScreenState extends State<homeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home page'),
-        backgroundColor: colorGreen,
-      ),
+      appBar: TaskAppBar(),
       body: widgetOptions.elementAt(TabIndex),
       bottomNavigationBar: appBottomNav(TabIndex, onItemTapped),
     );
