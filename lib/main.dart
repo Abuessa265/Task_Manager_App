@@ -15,14 +15,14 @@ void main() async {
     runApp(
       DevicePreview(
         enabled: true,
-        builder: (context) => MyApp('/'),
+        builder: (context) => MyApp('/login'),
       ),
     );
   } else {
     runApp(
       DevicePreview(
         enabled: true,
-        builder: (context) => MyApp('/login'),
+        builder: (context) => MyApp('/'),
       ),
     );
   }

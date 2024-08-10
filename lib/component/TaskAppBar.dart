@@ -1,28 +1,58 @@
 import 'package:flutter/material.dart';
-import 'package:taskmanager/Style/Style.dart';
+import 'package:taskmanager/style/style.dart';
+import 'package:taskmanager/utility/utility.dart';
 
-import '../widgets/network_cached_image.dart';
-
-AppBar TaskAppBar() {
+AppBar TaskAppBar(context, ProfileData) {
   return AppBar(
     backgroundColor: colorGreen,
-    leading: const Padding(
-      padding: EdgeInsets.all(8.0),
-      child: CircleAvatar(
-        child: NetworkCachedImage(
-          url: '',
-        ),
+    flexibleSpace: Container(
+      margin: EdgeInsets.fromLTRB(10, 40, 10, 0),
+      child: Row(
+        children: [
+          CircleAvatar(
+            backgroundColor: Colors.transparent,
+            radius: 24,
+            child: ClipOval(
+              child: Image.memory(ShowBase64Image(ProfileData['photo'])),
+            ),
+          ),
+          SizedBox(width: 10),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '${ProfileData['firstName']} ${ProfileData['lastName']}',
+                style: Head7Text(colorWhite),
+              ),
+              Text(
+                ProfileData['email'],
+                style: Head9Text(colorWhite),
+              )
+            ],
+          )
+        ],
       ),
     ),
-    title: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Abu essa',
-          style: Head6Text(colorWhite),
-        ),
-        Text("abuessa@gmail.com", style: Head7Text(colorWhite))
-      ],
-    ),
+    actions: [
+      IconButton(
+          onPressed: () {
+            Navigator.pushNamed(context, "/taskCreate");
+          },
+          icon: Icon(
+            Icons.add_circle_outline,
+            color: Colors.white,
+          )),
+      IconButton(
+          onPressed: () async {
+            await RemoveToken();
+            Navigator.pushNamedAndRemoveUntil(
+                context, "/login", (route) => false);
+          },
+          icon: Icon(
+            Icons.output,
+            color: Colors.white,
+          ))
+    ],
   );
 }
