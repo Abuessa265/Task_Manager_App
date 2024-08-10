@@ -11,7 +11,7 @@ AppBar TaskAppBar(context, ProfileData) {
         children: [
           CircleAvatar(
             backgroundColor: Colors.transparent,
-            radius: 24,
+            radius: 25,
             child: ClipOval(
               child: Image.memory(ShowBase64Image(ProfileData['photo'])),
             ),
