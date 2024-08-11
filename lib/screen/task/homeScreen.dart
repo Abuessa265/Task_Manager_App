@@ -17,7 +17,7 @@ class homeScreen extends StatefulWidget {
 class _homeScreenState extends State<homeScreen> {
   int TabIndex = 0;
   Map<String, String> ProfileData = {
-    "email": "abuessa@gmail.com",
+    "email": "abuessastudent",
     "firstName": "Abu",
     "lastName": " Essa",
     "photo": DefaultProfilePic
