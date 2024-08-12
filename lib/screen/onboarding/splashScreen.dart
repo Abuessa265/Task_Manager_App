@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../main.dart';
 import '../../style/style.dart';
 
 class splashScreen extends StatefulWidget {
@@ -20,9 +21,16 @@ class _splashScreenState extends State<splashScreen> {
           Container(
             padding: EdgeInsets.all(30),
             child: Center(
-                child: SvgPicture.asset("assets/images/logo.svg",
-                    alignment: Alignment.center)),
-          )
+              child: IconButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MyApp('/login')));
+                },
+                icon: SvgPicture.asset("assets/images/abuessa.svg",
+                    alignment: Alignment.center),
+              ),
+            ),
+          ),
         ],
       ),
     );

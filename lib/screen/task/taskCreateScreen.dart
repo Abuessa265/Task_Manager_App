@@ -35,9 +35,6 @@ class _taskCreateScreenState extends State<taskCreateScreen> {
       });
       bool res = await TaskCreateRequest(FormValues); //to do
       if (res == true) {
-        //   setState(() {
-        //     Loading = false;
-        //   });
         Navigator.pushNamedAndRemoveUntil(context, "/", (route) => false);
       } else {
         setState(() {

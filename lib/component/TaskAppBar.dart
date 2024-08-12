@@ -36,14 +36,6 @@ AppBar TaskAppBar(context, ProfileData) {
     ),
     actions: [
       IconButton(
-          onPressed: () {
-            Navigator.pushNamed(context, "/taskCreate");
-          },
-          icon: Icon(
-            Icons.add_circle_outline,
-            color: Colors.white,
-          )),
-      IconButton(
           onPressed: () async {
             await RemoveToken();
             Navigator.pushNamedAndRemoveUntil(

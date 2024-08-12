@@ -17,7 +17,7 @@ class homeScreen extends StatefulWidget {
 class _homeScreenState extends State<homeScreen> {
   int TabIndex = 0;
   Map<String, String> ProfileData = {
-    "email": "abuessastudent",
+    "email": "abuessastudent@gmail.com",
     "firstName": "Abu",
     "lastName": " Essa",
     "photo": DefaultProfilePic
@@ -63,6 +63,16 @@ class _homeScreenState extends State<homeScreen> {
       appBar: TaskAppBar(context, ProfileData),
       body: widgetOptions.elementAt(TabIndex),
       bottomNavigationBar: appBottomNav(TabIndex, onItemTapped),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, "/taskCreate");
+        },
+        backgroundColor: Colors.green,
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+      ),
     );
   }
 }

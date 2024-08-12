@@ -45,6 +45,7 @@ class _loginScreenState extends State<loginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    bool _obsecureText = true;
     return Scaffold(
       body: Stack(
         children: [
@@ -77,6 +78,7 @@ class _loginScreenState extends State<loginScreen> {
                           height: 20,
                         ),
                         TextFormField(
+                          obscureText: _obsecureText,
                           onChanged: (Textvalue) {
                             InputOnChange("password", Textvalue);
                           },
